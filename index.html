@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+  
+[class*="col-"] {
+  float: left;
+  padding-left: 15px;
+}
+img {
+  max-width: 100%;
+  min-width: 30%;
+  height: auto;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+.xe1 {
+	position: absolute;
+	left: 21px;
+	top:64px;
+}
+.xe2 {
+	position: absolute;
+	left: 463px;
+	top: 81px;
+}
+.run {
+	float: right;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+var radio1_truoc = 1;
+var radio1_sau = 1 ;
+
+var radio2 = 1;
+$(document).ready(function(){
+  $("#truocvacham-1").click(function(){
+    switch(radio1_truoc) {
+      case 1: $('[id=m1]').css("display", "block"); radio1_truoc++; break;
+      case 2: $('[id=m2]').css("display", "block"); radio1_truoc++; break;
+      case 3: $('[id=m3]').css("display", "block"); break;
+    }
+  });
+
+  $("#sauvacham-1").click(function(){
+    switch (radio1_sau) {
+      case 1: $('[id=m-1-1]').css("display", "block"); radio1_sau++; break;
+      case 2: $('[id=m-2-2]').css("display", "block"); radio1_sau++; break;
+      case 3: $('[id=m-3-3]').css("display", "block"); break;
+    }
+  });
+
+  $("#sauvacham-2").click(function(){
+    switch (radio2) {
+      case 1: $('[id=dh1]').css("display", "block"); radio2++; break;
+      case 2: $('[id=dh2]').css("display", "block"); radio2++; break;
+      case 3: $('[id=dh3]').css("display", "block"); break;
+    }
+  });
+
+  $("#run").click(function(){
+    var valRadio = $('input[name=radio_va_cham]:checked').val();
+    valRadio = Number(valRadio);
+    if (valRadio == 1) {
+      vaChamMem();
+    } else if (valRadio == 2) {
+      vaChamDanHoi();
+    }
+
+    
+  });
+
+  $("#reset").click(function(){
+    $("#xe1").animate({
+      left: '11px'
+    })
+
+    $("#xe2").animate({
+      left: '930px'
+    })
+
+    // enabled button run
+    $("#run").prop('disabled', false);
+  });
+});
+
+function vaChamMem() {
+  $("#xe1").animate({
+        left: '455px'
+    }, 1000);
+    $("#xe2").animate({
+      left: '590px'
+    }, 1000);
+    $("#reset").prop('disabled', true);
+
+    // sau va chạm
+    setTimeout(function() {
+      $("#xe1").animate({
+        left: '615px'
+      }, 2000);
+    }, 500);
+    setTimeout(function() {
+      $("#xe2").animate({
+      left: '800px'
+      }, 2000);
+    }, 500);
+
+    // disabled button run
+    $("#run").prop('disabled', true);
+    setTimeout(function() {
+      $("#reset").prop('disabled', false);
+    }, 2000);
+}
+
+function vaChamDanHoi() {
+  $("#xe1").animate({
+        left: '455px'
+    }, 800);
+    $("#xe2").animate({
+      left: '590px'
+    }, 800);
+    $("#reset").prop('disabled', true);
+
+    // sau va chạm
+    setTimeout(function() {
+      $("#xe1").animate({
+        left: '255px'
+      }, 1500);
+    }, 500);
+    setTimeout(function() {
+      $("#xe2").animate({
+      left: '800px'
+      }, 1500);
+    }, 500);
+
+    // disabled button run
+    $("#run").prop('disabled', true);
+    setTimeout(function() {
+      $("#reset").prop('disabled', false);
+    }, 2000);
+}
+</script>
+	<title>Vật Lý Thầy Tiến</title>
+</head>
+<body>
+<div class="container mt-3">
+  <div class="row">
+    <div class="d-flex">
+    <div class="form-check">
+    <input class="form-check-input" type="radio" value="1" id="flexCheckIndeterminate" checked="checked" name="radio_va_cham">
+    <label class="form-check-label" for="flexCheckIndeterminate">
+      Va chạm mềm
+    </label>
+  </div>
+  <div class="form-check" style="margin-left: 10px">
+  <input class="form-check-input" type="radio" value="2" id="flexCheckIndeterminate" name="radio_va_cham">
+  <label class="form-check-label" for="flexCheckIndeterminate">
+    Va chạm đàn hồi
+  </label>
+  </div>
+  </div>
+  
+  <div class="row d-flex" style="text-align: right;">
+    <div class="">
+      <input type="button" class="btn btn-success" name="" value="Run" id="run">
+      <input type="button" class="btn btn-success" name="" value="Reset" id="reset">
+    </div>
+  </div>
+
+  <div class="row position-relative mt-2">
+    <img style="width: 100%" src="thanh_diem_1.PNG">
+    <div class="position-absolute" style="width: 15%" id="xe1">
+          <img src="xe1.PNG">
+    </div>
+    <div class="position-absolute" style="width: 15%; right: 4%; top: 22%" id="xe2">
+          <img src="xe2_1.PNG">
+    </div>
+  </div>
+  <div class="row mt-4">
+    
+
+<h5><b>Bảng 30.1.</b> Thí nghiệm va chạm mềm</h5>
+<p>Độ dài tấm cản quang: 0,1 m</p>
+    <table class="table table-bordered" style="text-align: center;">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th colspan="5" scope="col" id="truocvacham-1">Trước va chạm</th>
+      <th colspan="4" scope="col" id="sauvacham-1">Sau va chạm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lần</td>
+      <td>m1</td>
+      <td>m2</td>
+      <td>t1</td>
+      <td>v1</td>
+      <td>p1</td>
+      <td>p2</td>
+      <td>p</td>
+      <td>t1'</td>
+      <td colspan="2">v1'=v2'</td>
+      <td>p'</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2kg</td>
+      <td>4kg</td>
+      <td>0.124</td>
+      <td>0.806</td>
+      <td><p id="m1" style="display: none">1.612</p></td>
+      <td><p id="m1" style="display: none">0</p></td>
+      <td><p id="m1" style="display: none">1.612</p></td>
+      <td>0.373</td>
+      <td colspan="2">0.268</td>
+      <td><p id="m-1-1" style="display: none">1.608</p></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2kg</td>
+      <td>4kg</td>
+      <td>0.128</td>
+      <td>0.781</td>
+      <td><p id="m2" style="display: none">1.562</p></td>
+      <td><p id="m2" style="display: none">0</p></td>
+      <td><p id="m2" style="display: none">1.562</p></td>
+      <td>0.384</td>
+      <td colspan="2">0.260</td>
+      <td><p id="m-2-2" style="display: none">1.560</p></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2kg</td>
+      <td>4kg</td>
+      <td>0.119</td>
+      <td>0.840</td>
+      <td><p id="m3" style="display: none">1.80</p></td>
+      <td><p id="m3" style="display: none">0</p></td>
+      <td><p id="m3" style="display: none">1.680</p></td>
+      <td>0.358</td>
+      <td colspan="2">0.279</td>
+      <td><p id="m-3-3" style="display: none">1.674</p></td>
+    </tr>
+  </tbody>
+</table>
+<h5><b>Bảng 30.2.</b> Thí nghiệm va chạm đàn hồi</h5>
+<table class="table table-bordered" style="text-align: center;">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th colspan="2" scope="col">Trước va chạm</th>
+      <th colspan="6" scope="col" id="sauvacham-2">Sau va chạm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lần</td>
+      <td>m1</td>
+      <td>m2</td>
+      <td>p1</td>
+      <td>p2</td>
+      <td>t1'</td>
+      <td>t2'</td>
+      <td>v1'</td>
+      <td>v2'</td>
+      <td>p1'</td>
+      <td>p2'</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2kg</td>
+      <td>4kg</td>
+      <td>1.612</td>
+      <td>1.257</td>
+      <td>0.156</td>
+      <td>0.662</td>
+      <td>0.643</td>
+      <td>0.151</td>
+      <td><p id="dh1" style="display: none">1.268</p></td>
+      <td><p id="dh1" style="display: none">0.604</p></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2kg</td>
+      <td>4kg</td>
+      <td>1.562</td>
+      <td>1.261</td>
+      <td>0.160</td>
+      <td>0.625</td>
+      <td>0.626</td>
+      <td>0.160</td>
+      <td><p id="dh2" style="display: none">1.252</p></td>
+      <td><p id="dh2" style="display: none">0.640</p></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2kg</td>
+      <td>4kg</td>
+      <td>1.680</td>
+      <td>1.263</td>
+      <td>0.151</td>
+      <td>0.709</td>
+      <td>0.665</td>
+      <td>0.141</td>
+      <td><p id="dh3" style="display: none">1.330</p></td>
+      <td><p id="dh3" style="display: none">0.564</p></td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
